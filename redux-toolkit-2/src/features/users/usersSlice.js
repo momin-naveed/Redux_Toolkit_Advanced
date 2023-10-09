@@ -5,7 +5,6 @@ const initialState = [
   { id: '1', name: 'Adeel Nasir' },
   { id: '2', name: 'Saim Ahmad' },
 ];
-
 const usersSlice = createSlice({
   name: 'users',
   initialState,
