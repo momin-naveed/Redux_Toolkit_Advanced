@@ -3,13 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { store } from './app/store';
-// import { fetchUsers } from './features/users/usersSlice';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { fetchUsers } from './features/users/usersSlice';
+import { fetchPosts } from './features/posts/postsSlice';
+
+store.dispatch(fetchPosts());
+store.dispatch(fetchUsers());
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/*" element={<App />}></Route>
+      </Routes>
+    </Router>
   </Provider>
 );
 
