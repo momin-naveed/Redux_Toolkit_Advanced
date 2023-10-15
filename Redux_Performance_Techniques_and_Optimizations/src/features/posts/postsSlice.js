@@ -94,8 +94,7 @@ const postsSlice = createSlice({
           };
           return post;
         });
-
-        // Add any fetched posts to the array
+        // "upsert" is a combination of "update" and "insert," means that the method will add  data from loadedPosts to postsAdapter
         postsAdapter.upsertMany(state, loadedPosts);
       })
       .addCase(fetchPosts.rejected, (state, action) => {
@@ -107,10 +106,8 @@ const postsSlice = createSlice({
         // Creating sortedPosts & assigning the id
         // would be not be needed if the fake API
         // returned accurate new post IDs
-
         action.payload.id = state.ids[state.ids.length - 1] + 1;
         // End fix for fake API post IDs
-
         action.payload.userId = Number(action.payload.userId);
         action.payload.date = new Date().toISOString();
         action.payload.reactions = {
