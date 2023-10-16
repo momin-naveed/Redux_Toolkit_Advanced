@@ -145,7 +145,7 @@ const postsSlice = createSlice({
 export const {
   selectAll: selectAllPosts,
   selectById: selectPostById,
-  selectIds: selectPostIds,
+  selectIdss: selectPostIds,
   // Pass in a selector that returns the posts slice of state
 } = postsAdapter.getSelectors((state) => state.posts);
 
