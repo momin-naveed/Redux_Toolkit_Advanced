@@ -6,6 +6,7 @@ const reactionEmoji = {
   rocket: '🚀',
   coffee: '☕',
 };
+
 const ReactionButtons = ({ post }) => {
   const [addReaction] = useAddReactionMutation();
   const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
